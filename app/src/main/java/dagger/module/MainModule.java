@@ -35,14 +35,14 @@ public class MainModule {
 
     @Provides
     @Named(MainPresenterImp.DEFAULT)
-    public RecDataGenerator getDefault() {//provide和name 使用
+    public RecDataGenerator getDefault() {//通过注解Named 来获取不同的实例
         return new RecDataGenerator();
     }
 
 
     @Provides
     @Named(MainPresenterImp.NOTDEFAULT)
-    public RecDataGenerator getNotDefault() {
+    public RecDataGenerator getNotDefault() {//通过注解Named 来获取不同的实例
         return new RecDataGenerator("this is not defualt ");
     }
 

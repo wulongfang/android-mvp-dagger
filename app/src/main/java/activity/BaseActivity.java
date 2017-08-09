@@ -19,7 +19,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected AppComponent getAppComponent(){
-        AppComponent component=((MyApplication)getApplication()).getAppComponent();
+        AppComponent component=((MyApplication)getApplication()).getAppComponent();//获取整个项目的AppComonet 这里可以注入一些通用的类，如访问网络的类等
        return  component;
     }
 }

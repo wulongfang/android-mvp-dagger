@@ -34,8 +34,7 @@ public class MainActivity extends BaseActivity implements IMainView {
     @Inject
     AppData appData1;
     @Inject
-    AppData appData2;//MainModule里面没有Data 的provides 方法，而且Data构造方法也没有@Inject 注解，但是由于它MainComonent 是SubComponet,而且APPComponent有一个addSub 方法；
-    @Inject
+    AppData appData2;
     ActivityData activityData1;
     @Inject
     ActivityData activityData2;
@@ -50,8 +49,8 @@ public class MainActivity extends BaseActivity implements IMainView {
         recItems = (RecyclerView) findViewById(R.id.rec_items);
         recItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recItems.addItemDecoration(new RecMainItemDecoration(this));
-        getAppComponent().addSub(new MainModule(this)).inject(this);
-        Log.d("LOG", "activity data 1 is " + activityData1 + " activity data 2 is " + activityData2);//activityData1,activityData2 是同一个实例
+        getAppComponent().addSub(new MainModule(this)).inject(this);//MainComponent 为SubComponent 通过这边addsub 使得到的MainComponent 可以注入AppData
+        Log.d("LOG", "activity data 1 is " + activityData1 + " activity data 2 is " + activityData2);//由于scope的作用activityData1,activityData2 是同一个实例
         presenterImp.getData();
 
 
