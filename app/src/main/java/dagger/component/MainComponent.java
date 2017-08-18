@@ -1,8 +1,8 @@
 package dagger.component;
 
-import javax.inject.Scope;
-
 import activity.main.MainActivity;
+import activity.main.TestActivity;
+import dagger.Component;
 import dagger.Subcomponent;
 import dagger.module.MainModule;
 import dagger.scope.ActivityScope;
@@ -14,4 +14,5 @@ import dagger.scope.ActivityScope;
 @Subcomponent(modules = MainModule.class)
 public interface MainComponent {
     void inject(MainActivity mainActivity);
+    void inject(TestActivity testActivity);
 }

@@ -13,6 +13,9 @@ import javax.inject.Named;
 import adapter.main.MainRecAdapter;
 import dagger.Module;
 import dagger.Provides;
+import dagger.scope.ActivityScope;
+import javabean.ActivityData;
+import javabean.TestData1;
 import module.main.RecDataGenerator;
 import presenter.main.MainPresenterImp;
 import view.main.IMainView;
@@ -22,6 +25,14 @@ import view.main.IMainView;
  */
 @Module
 public class MainModule {
+    @Provides
+    public TestData1 getTestData(){
+        return new TestData1();
+    }
+
+    public MainModule() {
+    }
+
     IMainView view;
 
     public MainModule(IMainView view) {
@@ -40,6 +51,7 @@ public class MainModule {
     }
 
 
+
     @Provides
     @Named(MainPresenterImp.NOTDEFAULT)
     public RecDataGenerator getNotDefault() {//通过注解Named 来获取不同的实例
@@ -56,5 +68,10 @@ public class MainModule {
                 Toast.makeText(context, "position " + position + " is click", Toast.LENGTH_LONG).show();
             }
         };
+    }
+    @ActivityScope
+    @Provides
+    public ActivityData providesActivityData(){
+        return new ActivityData();
     }
 }

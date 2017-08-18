@@ -2,6 +2,7 @@ package dagger;
 
 import javax.inject.Singleton;
 
+import activity.main.TestActivity;
 import dagger.component.MainComponent;
 import dagger.module.MainModule;
 
@@ -12,6 +13,6 @@ import dagger.module.MainModule;
 @Singleton
 @Component(modules = AppModule.class)
 public interface AppComponent {
-
     MainComponent addSub(MainModule module);
+    void inject(TestActivity testActivity);
 }
