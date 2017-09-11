@@ -20,7 +20,7 @@ public class MainPresenterImp implements IMainPresenter {
     public static final String NOTDEFAULT = "notdefault";
     @Inject
     @Named(NOTDEFAULT)
-    RecDataGenerator notDefaultgenerator;//通过named 产生两个不同的实例
+    RecDataGenerator notDefaultgenerator;
 
     @Inject
     @Named(DEFAULT)
